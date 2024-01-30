@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import * as passport from 'passport';
 
 
 async function bootstrap() {
@@ -10,6 +11,8 @@ async function bootstrap() {
     transform: true,
     whitelist: true
   }));
+
+  app.use(passport.initialize());
   await app.listen(3000);
 }
 bootstrap();

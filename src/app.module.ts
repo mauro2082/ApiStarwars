@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-
-import { UsersModule } from './modules/users/users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users/users.module';
+import { AuthController } from './modules/auth/auth.controller';
 
 @Module({
-  imports: [UsersModule, TypeOrmModule.forRoot({
+  imports: [
+    TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
       port: 5432,
@@ -12,7 +14,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: 'root',
       database: 'starwars',
       autoLoadEntities: true,
-      synchronize: true,  // solo para produccion
-  })],
+      synchronize: true, // Solo para desarrollo. Desactivar en producción.
+    }),
+    UsersModule,
+    AuthModule,
+  ],
+  controllers: [AuthController],
 })
 export class AppModule {}
