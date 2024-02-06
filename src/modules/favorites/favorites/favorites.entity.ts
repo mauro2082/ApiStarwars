@@ -12,5 +12,5 @@ export class Favorites {
 
   @ManyToOne(() => Users, user => user.favorites)
   @JoinColumn({ name: 'user_id' })
-  user: Users;
+  user: number;
 }
