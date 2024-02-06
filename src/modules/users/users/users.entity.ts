@@ -1,6 +1,5 @@
-// users.entity.ts
-
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Favorites } from '../../favorites/favorites/favorites.entity';
 
 @Entity()
 export class Users {
@@ -8,7 +7,7 @@ export class Users {
   id: number;
 
   @Column()
-  cedula: number; 
+  cedula: number;
 
   @Column()
   username: string;
@@ -18,4 +17,8 @@ export class Users {
 
   @Column()
   password: string;
+
+  @OneToMany(() => Favorites, favorites => favorites.user, { nullable: true })
+  favorites?: Favorites[];
 }
+

@@ -1,12 +1,16 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class CreateFavoriteDTO {
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     readonly id: number;
 
     @IsNotEmpty()
     @IsString()
     readonly name: string;
+
+    @IsNotEmpty()
+    @IsNumber()
+    readonly User_id: number;
 
 }

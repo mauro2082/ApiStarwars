@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users/users.module';
 import { AuthController } from './modules/auth/auth.controller';
+import {FavoritesModule} from './modules/favorites/favorites/favorites.module'
 
 
 
@@ -20,6 +21,7 @@ import { AuthController } from './modules/auth/auth.controller';
     }),
     UsersModule,
     AuthModule,
+    FavoritesModule,
   ],
   controllers: [AuthController],
 })
