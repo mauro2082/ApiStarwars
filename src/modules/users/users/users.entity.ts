@@ -8,6 +8,9 @@ export class Users {
   id: number;
 
   @Column()
+  cedula: number; 
+
+  @Column()
   username: string;
 
   @Column()

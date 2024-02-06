@@ -31,14 +31,16 @@ export class AuthService {
     }
   }
 
-  async login(user: any): Promise<{ access_token: string }> {
-    const payload = { username: user.username, sub: user.userId };
+  async login(user: any): Promise<{ access_token: string; userId: number }> {
+    const payload = { username: user.username, userId: user.id };  // Ajusta aquí
     return {
       access_token: this.jwtService.sign(payload),
+      userId: user.id,
     };
+  }
   }
 
 
 
 
-}
+

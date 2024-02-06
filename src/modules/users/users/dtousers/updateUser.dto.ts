@@ -3,9 +3,14 @@
 import { IsString, IsEmail, IsOptional, IsNotEmpty } from 'class-validator';
 
 export class UpdateUserDto {
+    //@IsNotEmpty()
+    //@IsString()
+    //readonly id: number;
+
+
     @IsNotEmpty()
     @IsString()
-    readonly id: number;
+    readonly cedula: number;
 
     @IsOptional()
     @IsNotEmpty()
